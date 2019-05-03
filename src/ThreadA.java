@@ -14,7 +14,7 @@ public class ThreadA {
 			System.out.println("main thread trying to call wait method");
 			b.wait(1000);
 		}
-
+		System.out.println("main thread got notification"); 
 		System.out.println(b.total);
 	}
 }
