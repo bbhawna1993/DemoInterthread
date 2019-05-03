@@ -10,12 +10,17 @@ public class ThreadA {
 		 * 3.synchronized(object name)=object name.wait()
 		 * 4.object on which you call wait will be same as synchronized block
 		 */
-
-		/*main thread sleeps so that chit ld thread gets the chance to execute.
+		/*
+		 * 1.main thread sleeps so that child thread gets the chance to execute.
 	     because if it does not sleeps then scheduler may give the chance to
 	     main thread or to child thread to execute.
+	     2.till the time,main thread sleeps,child thread runs and may die after that.
+	     In that case,main thread will continue waiting for the child thread but since
+	     its dead main thread will never get the chance to execute.
+	     3.Thus,we can avoid this by limiting the time period to wait.
 		 */
-		Thread.sleep(10000);
+		Thread.sleep(1000);
+
 		synchronized(b)
 		{
 			System.out.println("main thread trying to call wait method");
